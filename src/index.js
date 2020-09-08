@@ -1,17 +1,38 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {Test , PersonDetailes , ContactInfo} from './Component/Test';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+ <Fragment>
+
+  <Test 
+    Title='React App' 
+    Try='1'/>  
+    <Test 
+    Title='React App' 
+    Try='2'/>
+    <Test 
+    Title='React App' 
+    Try='3'/>
+    
+  <PersonDetailes 
+    Name='basma'
+    age='21'
+    /> 
+    <PersonDetailes 
+    Name='Marwa'
+    age='25'
+    /> 
+  <ContactInfo
+    Email='basma@gmail.com'
+    phone='01235'
+    />
+    <ContactInfo
+    Email='marwa@gmail.com'
+    phone='01852445'
+    />
+ </Fragment>
+ ,document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    
