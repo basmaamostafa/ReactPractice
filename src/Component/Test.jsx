@@ -1,48 +1,50 @@
-import React from 'react';
+import React, {Component} from 'react';
+ 
 
-export class Test extends React.Component{
+// export const Test = ({Title,Try})  =>(
+//     <h2>This is {Title} practice #{this.state.num} </h2>
+// );
+
+export class Test extends Component{
+    state={
+        num:1,
+    }
     render(){
-    return (  
-        <React.Fragment>
-    <h4>
-       <span>This is {this.props.Title}</span>
-       <span> Test {this.props.Try}  </span>
-    </h4>
-    </React.Fragment>
-    );
+        const {Title,Try} = this.props;
+        return(
+        <div>
+        <h2>This is {Title} practice #{this.state.num} </h2>
+        <button onClick={()=> {
+        this.setState({num: this.state.num +1});
+            }}>+</button>
+        </div>
+        );
     }
 }
 
-export class PersonDetailes extends React.Component{
+// export const PersonalInfo = ({Fname,Lname,age,phone}) =>(
+//     <p>My name is {Fname} {Lname}, age {age}, phone num {phone}</p>
+// );
+
+export class PersonalInfo extends Component{
+    state={
+        show: false,
+    };
     render(){
-    return (  
-        <React.Fragment>
-    <p>
-    My name is {this.props.Name},
-    My age is {this.props.age}
-    </p>
-    <p>
-    Your name is {this.props.Name},
-    Your age is {this.props.age}
-    </p>
-    </React.Fragment>
-    );
+        const {Fname,Lname,age,phone} = this.props;
+        return(
+            <div>
+            <button onClick={()=> this.setState({show: ! this.state.show})}>
+                {this.state.show ? 'Hide Info' : 'Show Info'}
+            </button>
+            { this.state.show && (
+                <p>My name is {Fname} {Lname}, age {age}, phone num {phone}</p>
+            )}
+            </div>
+        );
     }
 }
 
-export class ContactInfo extends React.Component{
-    render(){
-    return (  
-        <React.Fragment>
-    <p>
-    My email is {this.props.Email},
-    My phone is {this.props.phone}
-    </p>
-    <p>
-    Your email is {this.props.Email},
-    Your phone is {this.props.phone}
-    </p>
-    </React.Fragment>
-    );
-    }
-}
+
+
+
